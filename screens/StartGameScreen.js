@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
+import { TextInput, View, StyleSheet, Alert,  } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import Colors from "../constants/colors";
 import Title from "../components/ui/Title";
-import Card from '../components/ui/Card';
-
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -35,7 +35,7 @@ function StartGameScreen({ onPickNumber }) {
     <View style={styles.rootContainer}>
       <Title>Guess My Number</Title>
       <Card>
-        <Text style={styles.instructionText}>Enter a Number</Text>
+        <InstructionText>Enter a Number</InstructionText>
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -63,27 +63,9 @@ const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     marginTop: 100,
-    alignItems:"center"
-
-  },
-  inputContainer: {
-    justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 24,
-    borderRadius: 8,
-    padding: 16,
-    marginTop: 36,
-    backgroundColor: Colors.primary800,
-    elevation: 4,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
   },
-  instructionText: {
-    color: Colors.accent500,
-    fontSize: 24
-  },
+
   numberInput: {
     height: 50,
     width: 50,
