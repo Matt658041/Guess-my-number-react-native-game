@@ -2,7 +2,7 @@ import {
   View,
   StyleSheet,
   Alert,
-  useWindowDimensions,
+  
   FlatList,
 } from "react-native";
 import Title from "../components/ui/Title";
@@ -32,7 +32,7 @@ function GameScreen({ userNumber, onGameOver }) {
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
-  const {width, height} = useWindowDimensions();
+
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -73,7 +73,7 @@ function GameScreen({ userNumber, onGameOver }) {
 
   const guessRoundsListLength = guessRounds.length;
 
-  let content = <></>
+
 
   return (
     <View style={styles.screen}>
