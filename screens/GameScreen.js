@@ -1,4 +1,10 @@
-import { View, StyleSheet, Alert, Text, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+  FlatList,
+} from "react-native";
 import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
@@ -25,6 +31,8 @@ function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
+
+  const {width, height} = useWindowDimensions();
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -64,6 +72,8 @@ function GameScreen({ userNumber, onGameOver }) {
   }
 
   const guessRoundsListLength = guessRounds.length;
+
+  let content = <></>
 
   return (
     <View style={styles.screen}>
@@ -108,7 +118,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
-    alignItems:'center'
+    alignItems: "center",
   },
   buttonsContainer: {
     flexDirection: "row",
@@ -122,7 +132,6 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     padding: 16,
-
-  }
+  },
 });
 export default GameScreen;
